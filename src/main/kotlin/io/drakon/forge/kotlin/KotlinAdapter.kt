@@ -1,9 +1,8 @@
 package io.drakon.forge.kotlin
 
-import net.minecraftforge.fml.common.ILanguageAdapter
-import net.minecraftforge.fml.common.FMLModContainer
-import net.minecraftforge.fml.common.ModContainer
-import net.minecraftforge.fml.relauncher.Side
+import cpw.mods.fml.common.FMLModContainer
+import cpw.mods.fml.common.ILanguageAdapter
+import cpw.mods.fml.common.ModContainer
 import org.apache.logging.log4j.LogManager
 
 import java.lang.reflect.Field
@@ -14,13 +13,15 @@ import java.lang.reflect.Method
  *
  * Use by setting <pre>modLanguageAdapter = "io.drakon.forge.kotlin.KotlinAdapter"</pre> in the Mod annotation.
  * Your Kotlin @Mod implementation <b>must</b> be an <pre>object</pre> type.
- * (Forge 1.8-11.14.1.1371 and Kotlin RC1 or above required)
  *
  * @author Arkan <arkan@drakon.io>
  * @author Carrot <git@bunnies.io>
  */
 @Suppress("UNUSED")
 class KotlinAdapter : ILanguageAdapter {
+    override fun supportsStatics(): Boolean = false
+
+    override fun setInternalProxies(p0: ModContainer?, p1: cpw.mods.fml.relauncher.Side?, p2: ClassLoader?) = Unit
 
     private val logger = LogManager.getLogger("ILanguageAdapter/Kotlin")
 
@@ -41,9 +42,6 @@ class KotlinAdapter : ILanguageAdapter {
 
         return modObject
     }
-
-    override fun supportsStatics() = false
-    override fun setInternalProxies(mod: ModContainer?, side: Side?, loader: ClassLoader?) = Unit
 
     private fun findInstanceFieldOrThrow(targetClass: Class<*>): Field {
         val instanceField: Field = try {
