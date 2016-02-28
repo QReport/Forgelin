@@ -7,14 +7,13 @@
     "mcversion": "${MCversion}",
     "url": "",
     "updateUrl": "",
-    "authors": [
-      "Arkan Emberwalker"
+    "authorList": [
+      "Arkan Emberwalker",
       "carrot"
     ],
     "credits": "",
     "logoFile": "",
     "screenshots": [],
-    "parent":"",
     "dependencies": []
   }
 ]
