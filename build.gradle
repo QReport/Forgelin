@@ -57,7 +57,7 @@ def env = System.getenv()
 
 // Version manifest
 def verManifest = manifest {
-  attributes"Forge-Version": MC_VER + "-" + FORGE_VER, "Kotlin-Version": KOTLIN_VER, "FMLCorePlugin": "io.drakon.forgelin.CorePlugin", "FMLCorePluginContainsFMLMod": "true"
+  attributes"Forge-Version": MC_VER + "-" + FORGE_VER, "Kotlin-Version": KOTLIN_VER, "FMLCorePlugin": "io.drakon.forge.kotlin.CorePlugin", "FMLCorePluginContainsFMLMod": "true"
 }
 
 //================================================
